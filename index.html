@@ -30,7 +30,10 @@
                 <button class="header-category-tab" data-category="budget">农场活动</button>
             </div>
             <div class="header-search hidden" id="headerSearch">
-                <span class="search-icon">🔍</span>
+                <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
                 <input type="text" id="headerSearchInput" placeholder="搜农产品">
             </div>
             <button class="health-profile-btn" id="dietaryGuidelineBtn" aria-label="膳食档案">
@@ -303,19 +306,32 @@
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
             <button class="nav-item active" data-tab="home">
-                <span class="nav-icon">🏠</span>
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
                 <span class="nav-label">首页</span>
             </button>
             <button class="nav-item" data-tab="discover">
-                <span class="nav-icon">🌾</span>
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
                 <span class="nav-label">发现</span>
             </button>
             <button class="nav-item" data-tab="cookbook">
-                <span class="nav-icon">📖</span>
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
                 <span class="nav-label">食谱</span>
             </button>
             <button class="nav-item" data-tab="profile">
-                <span class="nav-icon">👤</span>
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
                 <span class="nav-label">我的</span>
             </button>
         </nav>

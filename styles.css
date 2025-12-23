@@ -248,6 +248,7 @@ body {
     justify-content: space-around;
     padding: var(--spacing-xs) 0;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    height: 70px;
 }
 
 .nav-item {
@@ -255,48 +256,43 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    justify-content: center;
+    gap: 0.2rem;
     background: none;
     border: none;
     color: var(--color-text-muted);
     cursor: pointer;
-    padding: var(--spacing-xs);
+    padding: var(--spacing-xs) 0;
     transition: all var(--transition-fast);
-    position: relative;
 }
 
-.nav-item::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--gradient-accent);
-    transition: width var(--transition-normal);
+.nav-svg {
+    width: 26px;
+    height: 26px;
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
 }
 
-.nav-item.active::before {
-    width: 40px;
-}
-
-.nav-item.active {
+.nav-item.active .nav-svg {
     color: var(--color-accent-primary);
-}
-
-.nav-icon {
-    font-size: 1.5rem;
-    transition: transform var(--transition-fast);
-}
-
-.nav-item.active .nav-icon {
-    transform: scale(1.1);
+    transform: translateY(-2px);
 }
 
 .nav-label {
     font-size: 0.75rem;
     font-weight: 500;
+    margin-top: 2px;
+}
+
+.nav-item.active .nav-label {
+    color: var(--color-accent-primary);
+}
+
+/* 移除旧的 Emoji 图标样式 */
+.nav-icon { display: none; }
+
+.nav-item::before {
+    display: none; /* 移除顶部装饰线，让视觉更纯粹 */
 }
 
 /* ===================================
@@ -1708,19 +1704,31 @@ body {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
-    padding: 0.35rem 0.6rem;
-    width: 160px;
+    padding: 0.35rem 0.75rem;
+    width: 170px;
     flex-shrink: 0;
     margin-left: auto;
+    transition: all var(--transition-normal);
+}
+
+.header-search:focus-within {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.1);
 }
 
 .header-search.hidden {
     display: none;
 }
 
-.search-icon {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
+.search-svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+.header-search:focus-within .search-svg {
+    color: var(--color-accent-primary);
 }
 
 #headerSearchInput {
