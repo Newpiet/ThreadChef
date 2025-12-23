@@ -1,0 +1,243 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="700" fill="#f8f9fa"/>
+  
+  <!-- 标题区域 -->
+  <rect x="0" y="0" width="900" height="60" fill="#e8f4ff"/>
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" font-weight="bold" fill="#1a5fb4">农庄项目智能平台详细功能流程</text>
+  
+  <!-- 四大核心模块 -->
+  <g id="modules">
+    <!-- 模块1：个性化康养指导系统 -->
+    <rect x="50" y="80" width="180" height="200" rx="10" fill="#e6f7ff" stroke="#1890ff" stroke-width="2.5"/>
+    <text x="140" y="105" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#0050b3">个性化康养指导系统</text>
+    <line x1="70" y1="115" x2="210" y2="115" stroke="#1890ff" stroke-width="1.5"/>
+    
+    <rect x="65" y="125" width="150" height="25" rx="5" fill="#bae7ff" stroke="#69c0ff" stroke-width="1"/>
+    <text x="140" y="142" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">用户一句话输入健康需求</text>
+    
+    <rect x="65" y="155" width="150" height="25" rx="5" fill="#bae7ff" stroke="#69c0ff" stroke-width="1"/>
+    <text x="140" y="172" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">基于《中国居民膳食指南》</text>
+    
+    <rect x="65" y="185" width="150" height="25" rx="5" fill="#bae7ff" stroke="#69c0ff" stroke-width="1"/>
+    <text x="140" y="202" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">生成《个人膳食指南报告》</text>
+    
+    <rect x="65" y="215" width="150" height="25" rx="5" fill="#bae7ff" stroke="#69c0ff" stroke-width="1"/>
+    <text x="140" y="232" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">报告可重新编辑生成</text>
+    
+    <rect x="65" y="245" width="150" height="25" rx="5" fill="#bae7ff" stroke="#69c0ff" stroke-width="1"/>
+    <text x="140" y="262" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">保存在个人健康档案中心</text>
+    
+    <!-- 模块2：智能美食推荐系统 -->
+    <rect x="290" y="80" width="180" height="200" rx="10" fill="#f6ffed" stroke="#52c41a" stroke-width="2.5"/>
+    <text x="380" y="105" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#237804">智能美食推荐系统</text>
+    <line x1="310" y1="115" x2="450" y2="115" stroke="#52c41a" stroke-width="1.5"/>
+    
+    <rect x="305" y="125" width="150" height="25" rx="5" fill="#d9f7be" stroke="#95de64" stroke-width="1"/>
+    <text x="380" y="142" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="bold">自动关联个人膳食指南</text>
+    
+    <rect x="305" y="155" width="150" height="25" rx="5" fill="#d9f7be" stroke="#95de64" stroke-width="1"/>
+    <text x="380" y="172" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">用户输入菜谱需求</text>
+    
+    <rect x="305" y="185" width="150" height="25" rx="5" fill="#d9f7be" stroke="#95de64" stroke-width="1"/>
+    <text x="380" y="202" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">基于150万份菜谱数据</text>
+    
+    <rect x="305" y="215" width="150" height="25" rx="5" fill="#d9f7be" stroke="#95de64" stroke-width="1"/>
+    <text x="380" y="232" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">生成标准化菜谱</text>
+    
+    <rect x="305" y="245" width="150" height="25" rx="5" fill="#d9f7be" stroke="#95de64" stroke-width="1"/>
+    <text x="380" y="262" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">提供个性化菜谱优化建议</text>
+    
+    <!-- 模块3：创新美食功能 -->
+    <rect x="530" y="80" width="180" height="200" rx="10" fill="#f9f0ff" stroke="#722ed1" stroke-width="2.5"/>
+    <text x="620" y="105" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#391085">创新美食功能</text>
+    <line x1="550" y1="115" x2="690" y2="115" stroke="#722ed1" stroke-width="1.5"/>
+    
+    <rect x="545" y="125" width="150" height="25" rx="5" fill="#efdbff" stroke="#d3adf7" stroke-width="1"/>
+    <text x="620" y="142" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="bold">"一键创新"功能按钮</text>
+    
+    <rect x="545" y="155" width="150" height="25" rx="5" fill="#efdbff" stroke="#d3adf7" stroke-width="1"/>
+    <text x="620" y="172" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">利用舆情数据分析</text>
+    
+    <rect x="545" y="185" width="150" height="25" rx="5" fill="#efdbff" stroke="#d3adf7" stroke-width="1"/>
+    <text x="620" y="202" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">增加创新元素</text>
+    
+    <rect x="545" y="215" width="150" height="25" rx="5" fill="#efdbff" stroke="#d3adf7" stroke-width="1"/>
+    <text x="620" y="232" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">展示社交媒体流行菜品</text>
+    
+    <rect x="545" y="245" width="150" height="25" rx="5" fill="#efdbff" stroke="#d3adf7" stroke-width="1"/>
+    <text x="620" y="262" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">季节性、地域性特色推荐</text>
+    
+    <!-- 模块4：基地农产品直连平台 -->
+    <rect x="770" y="80" width="120" height="200" rx="10" fill="#fff7e6" stroke="#fa8c16" stroke-width="2.5"/>
+    <text x="830" y="105" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#ad4e00">农场"发现"页面</text>
+    <line x1="780" y1="115" x2="880" y2="115" stroke="#fa8c16" stroke-width="1.5"/>
+    
+    <rect x="780" y="125" width="100" height="25" rx="5" fill="#ffe7ba" stroke="#ffd591" stroke-width="1"/>
+    <text x="830" y="142" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">小红书式界面</text>
+    
+    <rect x="780" y="155" width="100" height="25" rx="5" fill="#ffe7ba" stroke="#ffd591" stroke-width="1"/>
+    <text x="830" y="172" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">农场独立后台</text>
+    
+    <rect x="780" y="185" width="100" height="25" rx="5" fill="#ffe7ba" stroke="#ffd591" stroke-width="1"/>
+    <text x="830" y="202" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">上传蔬菜照片</text>
+    
+    <rect x="780" y="215" width="100" height="25" rx="5" fill="#ffe7ba" stroke="#ffd591" stroke-width="1"/>
+    <text x="830" y="232" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">分享二维码交易</text>
+    
+    <rect x="780" y="245" width="100" height="25" rx="5" fill="#ffe7ba" stroke="#ffd591" stroke-width="1"/>
+    <text x="830" y="262" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">预告采摘信息</text>
+  </g>
+  
+  <!-- 模块间连接 -->
+  <g id="connections">
+    <!-- 定义箭头 -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+      </marker>
+      <marker id="dashedarrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+      </marker>
+    </defs>
+    
+    <!-- 核心数据流 -->
+    <path d="M 230,180 C 250,180 270,180 290,180" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+   
+    
+    <path d="M 470,180 C 490,180 510,180 530,180" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+
+    
+    <path d="M 710,180 C 730,180 750,180 770,180" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="740" y="170" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333" font-weight="bold">食材需求</text>
+    
+    <!-- 辅助连接 -->
+    <path d="M 770,230 C 750,230 730,230 710,230" stroke="#666" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#dashedarrow)"/>
+    <text x="740" y="245" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#666">食材供应</text>
+    
+ 
+  
+  <!-- 详细用户流程 -->
+  <g id="detailed-user-flow">
+    <rect x="50" y="300" width="840" height="150" rx="10" fill="#f0f2f5" stroke="#8c8c8c" stroke-width="1.5"/>
+    <text x="450" y="325" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#262626">用户完整使用流程</text>
+    
+    <!-- 流程步骤 -->
+    <g id="step1">
+      <circle cx="110" cy="370" r="22" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="110" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+      <text x="110" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">一句话输入</text>
+      <text x="110" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">健康需求</text>
+    </g>
+    
+    <g id="step2">
+      <circle cx="200" cy="370" r="22" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="200" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+      <text x="200" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">获取个人</text>
+      <text x="200" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">膳食指南</text>
+    </g>
+    
+    <g id="step3">
+      <circle cx="290" cy="370" r="22" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="290" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+      <text x="290" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">保存至</text>
+      <text x="290" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">健康档案</text>
+    </g>
+    
+    <g id="step4">
+      <circle cx="380" cy="370" r="22" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
+      <text x="380" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+      <text x="380" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">输入菜谱</text>
+      <text x="380" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">需求</text>
+    </g>
+    
+    <g id="step5">
+      <circle cx="470" cy="370" r="22" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
+      <text x="470" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">5</text>
+      <text x="470" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">获取标准</text>
+      <text x="470" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">健康菜谱</text>
+    </g>
+    
+    <g id="step6">
+      <circle cx="560" cy="370" r="22" fill="#f9f0ff" stroke="#722ed1" stroke-width="2"/>
+      <text x="560" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">6</text>
+      <text x="560" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">一键创新</text>
+      <text x="560" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">菜谱</text>
+    </g>
+    
+    <g id="step7">
+      <circle cx="650" cy="370" r="22" fill="#fff7e6" stroke="#fa8c16" stroke-width="2"/>
+      <text x="650" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">7</text>
+      <text x="650" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">浏览农场</text>
+      <text x="650" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">发现页面</text>
+    </g>
+    
+    <g id="step8">
+      <circle cx="740" cy="370" r="22" fill="#fff7e6" stroke="#fa8c16" stroke-width="2"/>
+      <text x="740" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">8</text>
+      <text x="740" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">扫码购买</text>
+      <text x="740" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">农产品</text>
+    </g>
+    
+    <g id="step9">
+      <circle cx="830" cy="370" r="22" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
+      <text x="830" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">9</text>
+      <text x="830" y="405" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">实践健康</text>
+      <text x="830" y="420" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">美食</text>
+    </g>
+    
+    <!-- 流程连接线 -->
+    <line x1="132" y1="370" x2="178" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="222" y1="370" x2="268" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="312" y1="370" x2="358" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="402" y1="370" x2="448" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="492" y1="370" x2="538" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="582" y1="370" x2="628" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="672" y1="370" x2="718" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <line x1="762" y1="370" x2="808" y2="370" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    
+ 
+  
+  <!-- 关键功能亮点 -->
+  <g id="key-features">
+    <rect x="50" y="470" width="840" height="100" rx="10" fill="#f5f5f5" stroke="#d9d9d9" stroke-width="1.5"/>
+    <text x="450" y="495" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#262626">关键功能亮点</text>
+    
+    <rect x="70" y="510" width="190" height="50" rx="5" fill="#e6f7ff" stroke="#1890ff" stroke-width="1.5"/>
+    <text x="165" y="530" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0050b3" font-weight="bold">一句话生成个人膳食指南</text>
+    <text x="165" y="550" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0050b3">基于《中国居民膳食指南》</text>
+    
+    <rect x="270" y="510" width="190" height="50" rx="5" fill="#f6ffed" stroke="#52c41a" stroke-width="1.5"/>
+    <text x="365" y="530" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#237804" font-weight="bold">自动关联个人健康数据</text>
+    <text x="365" y="550" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#237804">基于150万份菜谱数据库</text>
+    
+    <rect x="470" y="510" width="190" height="50" rx="5" fill="#f9f0ff" stroke="#722ed1" stroke-width="1.5"/>
+    <text x="565" y="530" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#391085" font-weight="bold">一键创新菜谱功能</text>
+    <text x="565" y="550" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#391085">利用舆情数据增加创新元素</text>
+    
+    <rect x="670" y="510" width="190" height="50" rx="5" fill="#fff7e6" stroke="#fa8c16" stroke-width="1.5"/>
+    <text x="765" y="530" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ad4e00" font-weight="bold">小红书式农场发现页面</text>
+    <text x="765" y="550" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#ad4e00">直接扫码购买新鲜农产品</text>
+  </g>
+  
+  <!-- 价值展示 -->
+  <g id="values">
+    <rect x="50" y="590" width="840" height="90" rx="10" fill="#f0f2f5" stroke="#8c8c8c" stroke-width="1.5"/>
+    <text x="450" y="615" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#262626">项目核心价值</text>
+    
+    <rect x="70" y="625" width="260" height="45" rx="5" fill="#e6f7ff" stroke="#1890ff" stroke-width="1.5"/>
+    <text x="200" y="645" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0050b3" font-weight="bold">用户价值</text>
+    <text x="200" y="665" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0050b3">科学个性化健康饮食指导与实践</text>
+    
+    <rect x="340" y="625" width="260" height="45" rx="5" fill="#fff7e6" stroke="#fa8c16" stroke-width="1.5"/>
+    <text x="470" y="645" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ad4e00" font-weight="bold">农场主价值</text>
+    <text x="470" y="665" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#ad4e00">直接销售渠道与稳定客户群体</text>
+    
+    <rect x="610" y="625" width="260" height="45" rx="5" fill="#f6ffed" stroke="#52c41a" stroke-width="1.5"/>
+    <text x="740" y="645" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#237804" font-weight="bold">社会价值</text>
+    <text x="740" y="665" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#237804">促进健康生活与本地农业可持续发展</text>
+  </g>
+  
+ 
+  </g>
+</svg>

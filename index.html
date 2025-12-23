@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrendChef - 紧跟全网热点的智能美食助手。结合AI与舆情大数据,推荐最流行的烹饪趋势,一键复刻网红爆款。">
+    <meta name="keywords" content="AI美食,智能食谱,网红美食,舆情大数据,TrendChef">
+    <title>TrendChef - 紧跟全网热点的智能美食助手</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-title" id="headerTitle">TrendChef</div>
+            <div class="header-category-tabs hidden" id="headerCategoryTabs">
+                <button class="header-category-tab active" data-category="all">当季蔬菜</button>
+                <button class="header-category-tab" data-category="healthy">有机特供</button>
+                <button class="header-category-tab" data-category="budget">农场活动</button>
+            </div>
+            <div class="header-search hidden" id="headerSearch">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="headerSearchInput" placeholder="搜农产品">
+            </div>
+            <button class="health-profile-btn" id="dietaryGuidelineBtn" aria-label="膳食档案">
+                <span class="health-icon">🥗</span>
+            </button>
+        </header>
+
+        <!-- 个性化膳食档案生成弹窗 -->
+        <div class="health-modal" id="dietaryModal">
+            <div class="health-modal-overlay"></div>
+            <div class="health-modal-content large-modal">
+                <div class="health-modal-header">
+                    <h3>个性化膳食档案生成</h3>
+                    <button class="health-modal-close" id="dietaryModalClose">✕</button>
+                </div>
+
+                <!-- 步骤1：输入信息 -->
+                <div class="dietary-step" id="dietaryInputStep">
+                    <p class="step-desc">请描述您的基本信息和健康需求，AI将结合《中国居民膳食指南》为您定制建议。</p>
+                    <div class="input-guide">
+                        <span>💡 建议包含：年龄/性别、身高体重、健康状况(如高血压)、生活方式、饮食禁忌</span>
+                    </div>
+                    <textarea id="dietaryInput" class="dietary-textarea"
+                        placeholder="例如：我是45岁男性，身高175cm，体重85kg，有轻度高血压和高血脂，平时工作压力大久坐，想通过饮食调理改善健康状况..."></textarea>
+
+                    <button class="health-save-btn" id="generateGuidelineBtn">
+                        <span class="btn-icon">✨</span> 生成我的膳食档案
+                    </button>
+                </div>
+
+                <!-- Loading 状态 -->
+                <div class="dietary-loading" id="dietaryLoading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>AI正在研读《中国居民膳食指南》...</p>
+                    <p class="sub-loading">分析您的健康数据中...</p>
+                </div>
+
+                <!-- 步骤2：报告展示 -->
+                <div class="dietary-step" id="dietaryReportStep" style="display: none;">
+                    <div class="report-content" id="dietaryReportContent">
+                        <!-- Markdown render area -->
+                    </div>
+                    <!-- 手动编辑区域 (默认隐藏) -->
+                    <textarea id="dietaryReportEditor" class="dietary-textarea" style="display: none;"></textarea>
+
+                    <div class="report-actions">
+                        <button class="action-btn-outline" id="reEditBtn">重新填写</button>
+                        <button class="action-btn-outline" id="editReportContentBtn">编辑内容</button>
+                        <button class="health-save-btn" id="saveGuidelineBtn">确认保存</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Home/Generator Section -->
+            <section id="home" class="content-section active">
+                <div class="section-inner">
+                    <div class="home-hero">
+                        <h1 class="hero-main-title">您的康养膳食顾问</h1>
+                        <p class="hero-subtitle">让每一餐都成为修护身心的良方。</p>
+                        <div class="health-profile-hint" id="guidelineHint">
+                            <span>✅ 已连接您的个人膳食档案，生成结果将自动匹配</span>
+                        </div>
+                    </div>
+
+                    <!-- Generator Card -->
+                    <div class="generator-card">
+                        <!-- Compact Tags -->
+                        <div class="compact-tags-carousel" id="dietaryTags">
+                            <button class="tag-btn trending">🔥 热门：空气炸锅</button>
+                            <button class="tag-btn trending">🔥 热门：尹正焖菜</button>
+                            <button class="tag-btn health">🌿 膳食：减脂塑形</button>
+                            <button class="tag-btn health">🌿 膳食：三高调理</button>
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="input-group">
+                            <textarea id="ingredientInput" class="ingredient-input"
+                                placeholder="输入食材或你想吃的菜，AI 为你定制..." rows="3"></textarea>
+                        </div>
+
+                        <!-- Options & Actions -->
+                        <div class="home-controls">
+                            <!-- Dietary Guideline Guidance Module -->
+                            <div class="health-guide-module" id="guidelinePrompt">
+                                <div class="guide-content">
+                                    <div class="guide-icon">🥗</div>
+                                    <div class="guide-text">
+                                        <h4>完善个人膳食档案</h4>
+                                        <p>让 AI 烹饪建议更贴合您的健康需求</p>
+                                    </div>
+                                </div>
+                                <button class="guide-action-btn" id="promptGenerateBtn">去配置</button>
+                            </div>
+
+                            <div class="action-buttons-group">
+                                <button class="generate-btn-main" id="generateBtn" style="flex: 1;">生成菜谱</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="loading-animation">
+                            <div class="book-flip">
+                                <div class="book-page"></div>
+                                <div class="book-page"></div>
+                                <div class="book-page"></div>
+                            </div>
+                        </div>
+                        <p class="loading-text">AI 正在为你生成食谱...</p>
+                    </div>
+
+                    <!-- Recipe Result -->
+                    <div class="recipe-result" id="recipeResult">
+                        <div class="result-card">
+                            <div class="result-image">
+                                <img id="resultImage" src="" alt="Recipe">
+                            </div>
+                            <div class="result-content">
+                                <h3 class="result-title" id="resultTitle"></h3>
+                                <p class="result-description" id="resultDescription"></p>
+
+                                <div class="result-meta">
+                                    <span class="meta-item">⏱️ <span id="resultTime"></span></span>
+                                    <span class="meta-item">👥 <span id="resultServing"></span></span>
+                                    <span class="meta-item">🔥 <span id="resultDifficulty"></span></span>
+                                </div>
+
+                                <div class="result-steps" id="resultSteps"></div>
+
+                                <div class="result-tips" id="resultTips"></div>
+
+                                <div class="result-actions">
+                                <button class="action-btn primary" id="saveRecipeBtn">💾 保存到食谱书</button>
+                                <button class="action-btn secondary" id="shareRecipeBtn">🔗 分享</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discover Section - 农场发现 -->
+            <section id="discover" class="content-section">
+                <div class="section-inner">
+                    <!-- Discovery Feed -->
+                    <div class="discovery-feed" id="discoveryFeed">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+
+                    <!-- Floating Action Button - 农户发布 -->
+                    <div class="fab-container">
+                        <button class="fab-btn" id="fabBtn" aria-label="发布内容">
+                            <span class="fab-icon">+</span>
+                        </button>
+                        <div class="fab-menu" id="fabMenu">
+                            <button class="fab-menu-item" data-action="publish-product">
+                                <span class="fab-menu-icon">🌾</span>
+                                <span class="fab-menu-text">发布农产品</span>
+                            </button>
+                            <button class="fab-menu-item" data-action="publish-activity">
+                                <span class="fab-menu-icon">📅</span>
+                                <span class="fab-menu-text">发布活动</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cookbook Section -->
+            <section id="cookbook" class="content-section">
+                <div class="section-inner">
+                    <div class="cookbook-grid" id="cookbookGrid">
+                        <!-- Empty state -->
+                        <div class="empty-state">
+                            <div class="empty-icon">📖</div>
+                            <h3>还没有保存的食谱</h3>
+                            <p>快去生成或收藏你喜欢的食谱吧!</p>
+                            <button class="empty-action-btn" onclick="switchTab('home')">开始生成</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <div class="section-inner">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle">👤</div>
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name">美食探索者</h2>
+                            <p class="profile-subtitle">TrendChef 会员</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">生成</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">收藏</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">分享</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dietary Guideline in Profile (moved forward) -->
+                    <div class="profile-card guideline-profile-card" id="profileGuidelineCard" style="display: none;">
+                        <div class="guideline-card-header">
+                            <div class="guideline-card-title">📋 我的膳食档案</div>
+                            <span class="guideline-date" id="guidelineDate"></span>
+                        </div>
+                        <div class="guideline-preview" id="guidelinePreview"></div>
+                        <div class="guideline-actions">
+                            <button class="action-btn primary" onclick="openGuidelineModal()">查看详情</button>
+                        </div>
+                    </div>
+
+                    <!-- Preference Card -->
+                    <div class="profile-card">
+                        <h3 class="card-title">偏好设置补充</h3>
+                        <p class="card-subtext">补充配置您的饮食偏好和习惯，这些设置会与您的膳食档案结合使用，优化生成结果。</p>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <span>默认份量</span>
+                                <select class="setting-select">
+                                    <option value="">未设置</option>
+                                    <option>1-2人</option>
+                                    <option>3-4人</option>
+                                    <option>5-6人</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <span>饮食偏好</span>
+                                <select class="setting-select">
+                                    <option value="">未设置</option>
+                                    <option>无限制</option>
+                                    <option>素食</option>
+                                    <option>低脂</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="custom-pref-section">
+                            <div class="custom-pref-header">
+                                <span>更多偏好</span>
+                            </div>
+                            <div class="custom-pref-input-group">
+                                <input type="text" class="custom-pref-input" id="customPrefInput" placeholder="添加偏好，如：过敏原、口味偏好等">
+                                <button class="action-btn primary" id="addCustomPrefBtn">添加</button>
+                            </div>
+                            <div class="custom-pref-tags" id="customPrefList"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">首页</span>
+            </button>
+            <button class="nav-item" data-tab="discover">
+                <span class="nav-icon">🌾</span>
+                <span class="nav-label">发现</span>
+            </button>
+            <button class="nav-item" data-tab="cookbook">
+                <span class="nav-icon">📖</span>
+                <span class="nav-label">食谱</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">我的</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- 首次访问欢迎弹窗 -->
+    <div class="welcome-modal" id="welcomeModal" style="display: none;">
+        <div class="welcome-modal-overlay"></div>
+        <div class="welcome-content">
+            <div class="welcome-icon">👋</div>
+            <h2>欢迎来到 TrendChef<br>农庄智能平台</h2>
+            <p>我是您的专属AI营养师。基于《中国居民膳食指南》，为您定制个性化饮食方案。</p>
+            <div class="welcome-actions">
+                <button class="welcome-primary-btn" id="welcomeGenerateBtn">✨ 立即生成我的膳食档案</button>
+                <button class="welcome-secondary-btn" id="welcomeSkipBtn">先看一看</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
