@@ -156,7 +156,7 @@ const mockRecipes = {
 const mockGeneratedRecipes = [
     {
         title: '网红瀑布土豆泥',
-        description: '结合当前社交媒体最火的做法，口感绵密，视觉效果惊艳，完美适合拍照分享。',
+        description: '结合现代康养理念的创意做法，口感绵密，视觉与营养双重享受。',
         time: '30分钟',
         serving: '2-3人',
         difficulty: '简单',
@@ -168,23 +168,23 @@ const mockGeneratedRecipes = [
             '装入裱花袋，从高处挤出形成"瀑布"效果',
             '表面撒上黑胡椒和香葱点缀'
         ],
-        tips: '💡 大数据小贴士：最近流行在土豆泥中加入少量芝士，口感更加丝滑。网友反馈：挤的时候一定要从高处往下，才能形成完美的瀑布效果！'
+        tips: ''
     },
     {
         title: '空气炸锅香脆鸡翅',
-        description: '零油烹饪，外酥里嫩，健康又美味的网红做法。',
+        description: '零油烹饪，外酥里嫩，健康又美味的康养做法。',
         time: '25分钟',
         serving: '2人',
         difficulty: '简单',
         image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=800&h=600&fit=crop',
         steps: [
             '鸡翅洗净，两面划刀',
-            '加入生抽、料酒、蜂蜜、蒜末腌制30分钟',
+            '加入生抽、料酒、蜂蜜、蒜末腌制300分钟',
             '空气炸锅预热180度',
             '鸡翅放入炸篮，180度烤15分钟',
             '翻面继续烤8分钟至金黄'
         ],
-        tips: '💡 大数据小贴士：网友反馈腌制时加入可乐，口感更嫩！记得中途翻面，确保两面都烤得均匀。'
+        tips: ''
     }
 ];
 
@@ -508,12 +508,12 @@ function renderSpecificRecipe(recipe) {
         dietaryHtml = `
             <div class="dietary-optimization-note">
                 <div class="opt-header">✨ AI 膳食优化建议 (已关联档案)</div>
-                <p>针对您的健康需求，AI 已自动减少了食谱中的油脂用量，并建议将精制面粉替换为全麦选项以平衡基础代谢。</p>
+                <p>针对您的健康需求，AI 已自动为您优化了烹饪方案。本食谱已根据您的档案调整了油脂比例，并增强了关键微量元素的推荐，确保美味与康养并重。</p>
             </div>
         `;
     }
     
-    tipsContainer.innerHTML = dietaryHtml + `<p>${recipe.tips}</p>`;
+    tipsContainer.innerHTML = dietaryHtml;
 
     // --- 新增：AI 灵感探索模块 ---
     renderInspirations(recipe);
