@@ -23,66 +23,123 @@
 
         <!-- Header -->
         <header class="app-header">
-            <div class="header-title" id="headerTitle">TrendChef</div>
+            <div class="header-title" id="headerTitle">AI农庄膳食平台</div>
             <div class="header-category-tabs hidden" id="headerCategoryTabs">
                 <button class="header-category-tab active" data-category="all">当季蔬菜</button>
                 <button class="header-category-tab" data-category="healthy">有机特供</button>
                 <button class="header-category-tab" data-category="budget">农场活动</button>
             </div>
             <div class="header-search hidden" id="headerSearch">
-                <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
                 <input type="text" id="headerSearchInput" placeholder="搜农产品">
             </div>
-            <button class="health-profile-btn" id="dietaryGuidelineBtn" aria-label="膳食档案">
-                <span class="health-icon">🥗</span>
-            </button>
         </header>
 
         <!-- 个性化膳食档案生成弹窗 -->
+        <!-- 个性化膳食档案生成弹窗 (Redesigned) -->
         <div class="health-modal" id="dietaryModal">
             <div class="health-modal-overlay"></div>
             <div class="health-modal-content large-modal">
-                <div class="health-modal-header">
-                    <h3>个性化膳食档案生成</h3>
+                <!-- Header -->
+                <div class="health-modal-header premium-header">
+                    <div class="header-icon-container">
+                        <span class="header-icon">🥗</span>
+                    </div>
+                    <div class="header-text">
+                        <h3>AI 膳食健康顾问</h3>
+                        <p class="header-subtitle">为您定制专属的营养引擎</p>
+                    </div>
                     <button class="health-modal-close" id="dietaryModalClose">✕</button>
                 </div>
 
                 <!-- 步骤1：输入信息 -->
                 <div class="dietary-step" id="dietaryInputStep">
-                    <p class="step-desc">请描述您的基本信息和健康需求，AI将结合《中国居民膳食指南》为您定制建议。</p>
-                    <div class="input-guide">
-                        <span>💡 建议包含：年龄/性别、身高体重、健康状况(如高血压)、生活方式、饮食禁忌</span>
-                    </div>
-                    <textarea id="dietaryInput" class="dietary-textarea"
-                        placeholder="例如：我是45岁男性，身高175cm，体重85kg，有轻度高血压和高血脂，平时工作压力大久坐，想通过饮食调理改善健康状况..."></textarea>
 
-                    <button class="health-save-btn" id="generateGuidelineBtn">
-                        <span class="btn-icon">✨</span> 生成我的膳食档案
+                    <!-- 引导问题 -->
+                    <div class="input-section">
+                        <label class="input-label">如果您是为自己或家人定制，请描述：</label>
+
+                        <!-- 快捷标签选择区 -->
+                        <div class="quick-tags-container">
+                            <!-- Category 1: Target -->
+                            <div class="tag-category">
+                                <span class="category-label">👥 对象</span>
+                                <div class="tags-row" id="quickTagsTarget">
+                                    <button class="quick-tag-chip" data-text="我是上班族，平时久坐">💼 上班族</button>
+                                    <button class="quick-tag-chip" data-text="为家里老人准备">👴 老年人</button>
+                                    <button class="quick-tag-chip" data-text="为正在长身体的孩子准备">🧒 儿童</button>
+                                    <button class="quick-tag-chip" data-text="我是健身爱好者">🏋️ 健身党</button>
+                                </div>
+                            </div>
+
+                            <!-- Category 2: Goals -->
+                            <div class="tag-category">
+                                <span class="category-label">🎯 目标</span>
+                                <div class="tags-row" id="quickTagsGoals">
+                                    <button class="quick-tag-chip" data-text="我想减脂塑形">🔥 减脂</button>
+                                    <button class="quick-tag-chip" data-text="我想增肌增重">💪 增肌</button>
+                                    <button class="quick-tag-chip" data-text="注意控糖">🍬 控糖</button>
+                                    <button class="quick-tag-chip" data-text="调理肠胃">🥬 养胃</button>
+                                </div>
+                            </div>
+
+                            <!-- Category 3: Conditions -->
+                            <div class="tag-category">
+                                <span class="category-label">⚠️ 状况</span>
+                                <div class="tags-row" id="quickTagsConditions">
+                                    <button class="quick-tag-chip" data-text="有高血压">🩺 高血压</button>
+                                    <button class="quick-tag-chip" data-text="海鲜过敏">🦐 海鲜过敏</button>
+                                    <button class="quick-tag-chip" data-text="乳糖不耐受">🥛 乳糖不耐</button>
+                                    <button class="quick-tag-chip" data-text="不吃辣">🌶️ 不吃辣</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <textarea id="dietaryInput" class="dietary-textarea premium-input"
+                            placeholder="如有其他特殊需求或详细身体数据（如身高体重），请在此补充..."></textarea>
+                    </div>
+
+                    <button class="health-save-btn premium-btn-large" id="generateGuidelineBtn">
+                        <span class="btn-icon">✨</span> 生成膳食建议
                     </button>
                 </div>
 
                 <!-- Loading 状态 -->
                 <div class="dietary-loading" id="dietaryLoading" style="display: none;">
-                    <div class="loading-spinner"></div>
-                    <p>AI正在研读《中国居民膳食指南》...</p>
-                    <p class="sub-loading">分析您的健康数据中...</p>
+                    <div class="loading-spinner-container">
+                        <div class="loading-spinner premium-spinner"></div>
+                        <div class="loading-pulse"></div>
+                    </div>
+                    <div class="loading-steps">
+                        <p class="loading-step active" id="loadStep1">🔍 正在分析您的身体数据...</p>
+                        <p class="loading-step" id="loadStep2">📚 正在研读《中国居民膳食指南》...</p>
+                        <p class="loading-step" id="loadStep3">✨ 正在为您定制专属食谱方案...</p>
+                    </div>
                 </div>
 
                 <!-- 步骤2：报告展示 -->
                 <div class="dietary-step" id="dietaryReportStep" style="display: none;">
+
+                    <!-- 结构化摘要 -->
+                    <div class="report-header-summary" id="reportHeaderSummary">
+                        <!-- JS Will Populate This: Age, BMI, Key Tags -->
+                    </div>
+
                     <div class="report-content" id="dietaryReportContent">
                         <!-- Markdown render area -->
                     </div>
+
                     <!-- 手动编辑区域 (默认隐藏) -->
                     <textarea id="dietaryReportEditor" class="dietary-textarea" style="display: none;"></textarea>
 
                     <div class="report-actions">
                         <button class="action-btn-outline" id="reEditBtn">重新填写</button>
-                        <button class="action-btn-outline" id="editReportContentBtn">编辑内容</button>
-                        <button class="health-save-btn" id="saveGuidelineBtn">确认保存</button>
+                        <button class="action-btn-outline" id="editReportContentBtn">编辑</button>
+                        <button class="health-save-btn" id="saveGuidelineBtn">保存</button>
                     </div>
                 </div>
 
@@ -99,7 +156,7 @@
                         <h1 class="hero-main-title">您的康养膳食顾问</h1>
                         <p class="hero-subtitle">让每一餐都成为修护身心的良方。</p>
                         <div class="health-profile-hint" id="guidelineHint">
-                            <span>✅ 已连接您的个人膳食档案，生成结果将自动匹配</span>
+                            <span>✅ 已关联膳食档案，推荐将自动优化</span>
                         </div>
                     </div>
 
@@ -107,16 +164,16 @@
                     <div class="generator-card">
                         <!-- Compact Tags -->
                         <div class="compact-tags-carousel" id="dietaryTags">
-                            <button class="tag-btn trending">🔥 热门：空气炸锅</button>
-                            <button class="tag-btn trending">🔥 热门：尹正焖菜</button>
-                            <button class="tag-btn health">🌿 膳食：减脂塑形</button>
-                            <button class="tag-btn health">🌿 膳食：三高调理</button>
+                            <button class="tag-btn trending">空气炸锅</button>
+                            <button class="tag-btn trending">尹正焖菜</button>
+                            <button class="tag-btn health">减脂塑形</button>
+                            <button class="tag-btn health">三高调理</button>
                         </div>
 
                         <!-- Input Area -->
                         <div class="input-group">
-                            <textarea id="ingredientInput" class="ingredient-input"
-                                placeholder="输入食材或你想吃的菜，AI 为你定制..." rows="3"></textarea>
+                            <textarea id="ingredientInput" class="ingredient-input" placeholder="输入食材或你想吃的菜，AI 为你定制..."
+                                rows="3"></textarea>
                         </div>
 
                         <!-- Options & Actions -->
@@ -126,15 +183,21 @@
                                 <div class="guide-content">
                                     <div class="guide-icon">🥗</div>
                                     <div class="guide-text">
-                                        <h4>完善个人膳食档案</h4>
-                                        <p>让 AI 烹饪建议更贴合您的健康需求</p>
+                                        <h4>完善膳食档案</h4>
+                                        <p>让 AI 建议更贴合您的健康需求</p>
                                     </div>
                                 </div>
-                                <button class="guide-action-btn" id="promptGenerateBtn">去配置</button>
+                                <button class="guide-action-btn" id="promptGenerateBtn">去设置</button>
                             </div>
 
                             <div class="action-buttons-group">
-                                <button class="generate-btn-main" id="generateBtn" style="flex: 1;">生成菜谱</button>
+                                <!-- 融合热点开关 -->
+                                <button class="trend-fusion-toggle" id="trendFusionToggle" 
+                                    title="开启后将融入当前热门烹饪方法（如空气炸锅），让菜谱更时尚、更省时">
+                                    <span class="toggle-icon">🔥</span>
+                                    <span class="toggle-text">融合热点</span>
+                                </button>
+                                <button class="generate-btn-main" id="generateBtn" style="flex: 2;">生成菜谱</button>
                             </div>
                         </div>
                     </div>
@@ -159,6 +222,10 @@
                             </div>
                             <div class="result-content">
                                 <h3 class="result-title" id="resultTitle"></h3>
+                                
+                                <!-- 融合模式标识 - 顶部展示（信息架构优化） -->
+                                <div class="result-trend-badge" id="resultTrendBadge" style="display: none;"></div>
+                                
                                 <p class="result-description" id="resultDescription"></p>
 
                                 <div class="result-meta">
@@ -169,11 +236,12 @@
 
                                 <div class="result-steps" id="resultSteps"></div>
 
-                                <div class="result-tips" id="resultTips"></div>
+                                <!-- AI膳食优化建议 - 步骤后展示（信息架构优化） -->
+                                <div class="result-ai-optimization" id="resultAIOptimization" style="display: none;"></div>
 
                                 <div class="result-actions">
-                                <button class="action-btn primary" id="saveRecipeBtn">💾 保存到食谱书</button>
-                                <button class="action-btn secondary" id="shareRecipeBtn">🔗 分享</button>
+                                    <button class="action-btn primary" id="saveRecipeBtn">💾 保存到食谱书</button>
+                                    <button class="action-btn secondary" id="shareRecipeBtn">🔗 分享</button>
                                 </div>
                             </div>
                         </div>
@@ -183,27 +251,69 @@
 
             <!-- Discover Section - 农场发现 -->
             <section id="discover" class="content-section">
-                <div class="section-inner">
+                <div class="section-inner" id="discoveryFeedContainer">
                     <!-- Discovery Feed -->
                     <div class="discovery-feed" id="discoveryFeed">
                         <!-- Cards will be dynamically inserted here -->
                     </div>
+                </div>
 
-                    <!-- Floating Action Button - 农户发布 -->
-                    <div class="fab-container">
-                        <button class="fab-btn" id="fabBtn" aria-label="发布内容">
-                            <span class="fab-icon">+</span>
-                        </button>
-                        <div class="fab-menu" id="fabMenu">
-                            <button class="fab-menu-item" data-action="publish-product">
-                                <span class="fab-menu-icon">🌾</span>
-                                <span class="fab-menu-text">发布农产品</span>
-                            </button>
-                            <button class="fab-menu-item" data-action="publish-activity">
-                                <span class="fab-menu-icon">📅</span>
-                                <span class="fab-menu-text">发布活动</span>
+                <!-- 农产品/活动详情页 (新增) -->
+                <div class="discovery-detail-page" id="discoveryDetail" style="display: none;">
+                    <button class="back-btn-float" id="discoveryBackBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    
+                    <div class="detail-hero-image">
+                        <img id="detailImage" src="" alt="Detail">
+                    </div>
+
+                    <div class="detail-content-wrapper">
+                        <div class="detail-header">
+                            <h2 id="detailTitle" class="detail-title"></h2>
+                            <div class="detail-price-row">
+                                <span class="detail-price" id="detailPrice"></span>
+                                <span class="detail-unit" id="detailUnit"></span>
+                            </div>
+                            <div class="detail-tags" id="detailTags"></div>
+                        </div>
+
+                        <div class="detail-seller-card">
+                            <div class="seller-avatar" id="sellerAvatar">👤</div>
+                            <div class="seller-info">
+                                <div class="seller-name" id="sellerName"></div>
+                                <div class="seller-badge" id="sellerType"></div>
+                            </div>
+                            <button class="contact-btn-sm" id="contactSellerBtnSmall">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             </button>
                         </div>
+
+                        <div class="detail-section">
+                            <h3 class="section-title-sm">详细介绍</h3>
+                            <p id="detailDesc" class="detail-text"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3 class="section-title-sm">产地/地址</h3>
+                            <div class="location-card" id="detailLocationCard">
+                                <span class="location-icon">📍</span>
+                                <span class="location-text" id="detailLocation"></span>
+                            </div>
+                        </div>
+
+                        <!-- 底部留白，防遮挡 -->
+                        <div style="height: 80px;"></div>
+                    </div>
+
+                    <!-- 底部操作栏 -->
+                    <div class="detail-bottom-bar">
+                        <button class="action-btn secondary" id="navToFarmBtn">
+                            <span>📍 导航去农场</span>
+                        </button>
+                        <button class="action-btn primary" id="contactSellerBtnMain">
+                            <span>💬 联系卖家</span>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -259,42 +369,8 @@
                         <div class="guideline-preview" id="guidelinePreview"></div>
                         <div class="guideline-actions">
                             <button class="action-btn primary" onclick="openGuidelineModal()">查看详情</button>
-                        </div>
-                    </div>
-
-                    <!-- Preference Card -->
-                    <div class="profile-card">
-                        <h3 class="card-title">偏好设置补充</h3>
-                        <p class="card-subtext">补充配置您的饮食偏好和习惯，这些设置会与您的膳食档案结合使用，优化生成结果。</p>
-                        <div class="settings-list">
-                            <div class="setting-item">
-                                <span>默认份量</span>
-                                <select class="setting-select">
-                                    <option value="">未设置</option>
-                                    <option>1-2人</option>
-                                    <option>3-4人</option>
-                                    <option>5-6人</option>
-                                </select>
-                            </div>
-                            <div class="setting-item">
-                                <span>饮食偏好</span>
-                                <select class="setting-select">
-                                    <option value="">未设置</option>
-                                    <option>无限制</option>
-                                    <option>素食</option>
-                                    <option>低脂</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="custom-pref-section">
-                            <div class="custom-pref-header">
-                                <span>更多偏好</span>
-                            </div>
-                            <div class="custom-pref-input-group">
-                                <input type="text" class="custom-pref-input" id="customPrefInput" placeholder="添加偏好，如：过敏原、口味偏好等">
-                                <button class="action-btn primary" id="addCustomPrefBtn">添加</button>
-                            </div>
-                            <div class="custom-pref-tags" id="customPrefList"></div>
+                            <button class="action-btn secondary-dim" id="resetDemoBtn"
+                                style="margin-left: 8px; font-size: 0.75rem; opacity: 0.6;">🧪 重置演示状态</button>
                         </div>
                     </div>
 
@@ -306,29 +382,35 @@
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
             <button class="nav-item active" data-tab="home">
-                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
                 <span class="nav-label">首页</span>
             </button>
             <button class="nav-item" data-tab="discover">
-                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
                 </svg>
                 <span class="nav-label">发现</span>
             </button>
             <button class="nav-item" data-tab="cookbook">
-                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                 </svg>
                 <span class="nav-label">食谱</span>
             </button>
             <button class="nav-item" data-tab="profile">
-                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
@@ -343,11 +425,11 @@
         <div class="welcome-modal-overlay"></div>
         <div class="welcome-content">
             <div class="welcome-icon">👋</div>
-            <h2>欢迎来到 TrendChef<br>农庄智能平台</h2>
+            <h2>欢迎来到 AI农庄膳食平台</h2>
             <p>我是您的专属AI营养师。基于《中国居民膳食指南》，为您定制个性化饮食方案。</p>
             <div class="welcome-actions">
-                <button class="welcome-primary-btn" id="welcomeGenerateBtn">✨ 立即生成我的膳食档案</button>
-                <button class="welcome-secondary-btn" id="welcomeSkipBtn">先看一看</button>
+                <button class="welcome-primary-btn" id="welcomeGenerateBtn">生成膳食档案</button>
+                <button class="welcome-secondary-btn" id="welcomeSkipBtn">先看看</button>
             </div>
         </div>
     </div>
